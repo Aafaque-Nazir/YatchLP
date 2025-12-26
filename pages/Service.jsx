@@ -4,34 +4,30 @@ import { Anchor, Music, BedDouble, Wine } from "lucide-react";
 
 const services = [
   {
-    icon: <Anchor className="w-12 h-12 text-white" />,
+    icon: <Anchor className="w-12 h-12 text-yellow-500" />,
     title: "Luxury Stay",
     desc: "Spacious cabins with premium interiors for a royal experience.",
-    gradient: "from-indigo-500 via-purple-500 to-pink-500",
   },
   {
-    icon: <Music className="w-12 h-12 text-white" />,
+    icon: <Music className="w-12 h-12 text-yellow-500" />,
     title: "Private Parties",
     desc: "Host unforgettable parties with music, dance, and sea vibes.",
-    gradient: "from-pink-500 via-red-500 to-yellow-500",
   },
   {
-    icon: <BedDouble className="w-12 h-12 text-white" />,
+    icon: <BedDouble className="w-12 h-12 text-yellow-500" />,
     title: "Comfort & Relaxation",
     desc: "Chill at the deck, enjoy the sunset, and unwind in style.",
-    gradient: "from-green-400 via-blue-500 to-purple-600",
   },
   {
-    icon: <Wine className="w-12 h-12 text-white" />,
+    icon: <Wine className="w-12 h-12 text-yellow-500" />,
     title: "Fine Dining",
     desc: "Savor gourmet meals and premium drinks aboard your yacht.",
-    gradient: "from-yellow-400 via-orange-500 to-red-600",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="relative py-24 bg-gray-950 text-white">
+    <section className="relative py-24 bg-slate-950 text-white">
       {/* Glassmorphism backdrop */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')] bg-cover bg-center opacity-20"></div>
       <div className="absolute inset-0 backdrop-blur-sm"></div>
@@ -58,24 +54,17 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative group rounded-2xl p-8 overflow-hidden shadow-lg"
+              className="relative group rounded-2xl p-8 overflow-hidden shadow-lg bg-slate-900 border border-slate-800 hover:border-yellow-500 transition-colors duration-500"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
             >
-              {/* Gradient background */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-tr ${service.gradient} opacity-80 group-hover:opacity-100 transition-all duration-500`}
-              ></div>
-
-              {/* Glass overlay */}
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-md"></div>
-
+              
               {/* Content */}
               <div className="relative z-10">
                 <div className="mb-6 flex justify-center">{service.icon}</div>
-                <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
-                <p className="text-gray-200">{service.desc}</p>
+                <h3 className="text-2xl font-semibold mb-3 text-slate-100">{service.title}</h3>
+                <p className="text-slate-300">{service.desc}</p>
               </div>
             </motion.div>
           ))}

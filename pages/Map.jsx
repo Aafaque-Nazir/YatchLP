@@ -3,11 +3,11 @@ import { MapPin } from "lucide-react";
 
 export default function LocationMap() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 text-center text-white">
+    <section className="py-20 bg-slate-950 text-center text-white">
       <div className="max-w-5xl mx-auto px-6">
         {/* Heading */}
         <h2 className="text-4xl font-extrabold mb-4 flex items-center justify-center gap-2">
-          <MapPin className="w-8 h-8 text-red-500" />
+          <MapPin className="w-8 h-8 text-yellow-500" />
           Find Us Here
         </h2>
         <p className="text-gray-300 mb-10 text-lg">
@@ -33,7 +33,7 @@ export default function LocationMap() {
             href="https://www.google.com/maps/dir/?api=1&destination=Gateway+of+India+Mumbai"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
+            className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
           >
             🚗 Get Directions
           </a>

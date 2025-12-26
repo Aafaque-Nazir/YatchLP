@@ -60,7 +60,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-24 px-4 md:px-10 bg-gray-950 overflow-hidden relative">
+    <section id="gallery" className="py-24 px-4 md:px-10 bg-slate-950 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function Gallery() {
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: -100, scale: 0.9 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] w-full max-w-sm flex-shrink-0 bg-gray-900 border border-gray-800`}
+                  className={`relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] w-full max-w-sm flex-shrink-0 bg-slate-900 border border-slate-800`}
                 >
                   {item.type === "image" ? (
                     <img
@@ -105,7 +105,7 @@ export default function Gallery() {
                       playsInline
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium tracking-wide">
                       Luxury Yacht Life
                     </span>
@@ -146,7 +146,7 @@ export default function Gallery() {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  idx === currentIndex ? "bg-blue-500 w-6" : "bg-gray-600 hover:bg-gray-500"
+                  idx === currentIndex ? "bg-yellow-500 w-6" : "bg-slate-700 hover:bg-slate-600"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

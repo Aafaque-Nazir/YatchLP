@@ -3,7 +3,7 @@ import { Phone, MessageSquare, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+      <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
         
       {/* Background Video */}
       <video
@@ -16,22 +16,10 @@ export default function Hero() {
         <source src="/v1.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-gray-950 z-[5]"></div>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50 z-[5]"></div>
 
-      {/* Floating subtle circles */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div
-          animate={{ y: [0, -50, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-64 h-64 bg-blue-500/20 rounded-full blur-3xl top-10 left-1/4"
-        />
-        <motion.div
-          animate={{ y: [0, -30, 0], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-80 h-80 bg-purple-500/20 rounded-full blur-3xl bottom-20 right-1/3"
-        />
-      </div>
+      {/* Floating subtle circles - REMOVED for clean look */}
 
       {/* Content */}
       <motion.div
@@ -52,13 +40,13 @@ export default function Hero() {
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
           Luxury Speed Boat <br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+          <span className="text-yellow-500">
             Stay & Party
           </span>
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto font-light"
+          className="text-lg md:text-2xl mb-10 text-slate-300 max-w-2xl mx-auto font-light"
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
           Experience the ultimate freedom on the water. Unforgettable moments await you.
@@ -70,7 +58,7 @@ export default function Hero() {
         >
           <a
             href="tel:+919594793959"
-            className="group relative flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-lg shadow-blue-600/30 transition-all duration-300 hover:scale-105 overflow-hidden"
+            className="group relative flex items-center gap-3 px-8 py-4 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-full shadow-lg shadow-yellow-600/30 transition-all duration-300 hover:scale-105 overflow-hidden"
           >
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             <Phone className="w-5 h-5 relative z-10" />
@@ -80,9 +68,9 @@ export default function Hero() {
             href="https://wa.me/919594793959?text=Hi%21%20I%20want%20to%20book%20a%20yacht%20experience."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-lg shadow-green-500/30 transition-all duration-300 hover:scale-105 overflow-hidden"
+            className="group relative flex items-center gap-3 px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             <MessageSquare className="w-5 h-5 relative z-10" />
             <span className="relative z-10">WhatsApp Us</span>
           </a>

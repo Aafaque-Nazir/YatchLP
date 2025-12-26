@@ -7,9 +7,10 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
   font-family: 'Outfit', sans-serif;
-  @apply bg-gray-950 text-white antialiased;
+  @apply bg-slate-950 text-slate-50 antialiased;
 }

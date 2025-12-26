@@ -38,7 +38,7 @@ const StarRating = ({ rating }) => {
         <Star
           key={i}
           className={`w-5 h-5 ${
-            i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-600"
+            i < rating ? "fill-yellow-500 text-yellow-500" : "text-slate-700"
           }`}
         />
       ))}
@@ -48,7 +48,7 @@ const StarRating = ({ rating }) => {
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="bg-gray-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-800">
+    <div className="bg-slate-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-slate-800">
       <div className="flex items-center mb-4">
         <img
           src={testimonial.image}
@@ -73,7 +73,7 @@ const TestimonialCard = ({ testimonial }) => {
 const Testimonials = ({ dataId }) => {
   return (
     <section
-      className="w-full bg-gradient-to-br from-black via-gray-950 to-gray-900 py-16 px-4"
+      className="w-full bg-slate-950 py-16 px-4"
       data-id={dataId}
     >
       <div className="max-w-7xl mx-auto">
@@ -92,8 +92,8 @@ const Testimonials = ({ dataId }) => {
           ))}
         </div>
         <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-gray-900 border border-gray-800 rounded-full px-6 py-3 shadow-md">
-            <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+          <div className="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-6 py-3 shadow-md">
+            <Star className="w-5 h-5 fill-yellow-500 text-yellow-500" />
             <span className="font-semibold text-white">4.6/5</span>
             <span className="text-gray-400">from 200+ reviews</span>
           </div>

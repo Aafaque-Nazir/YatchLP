@@ -4,8 +4,7 @@ import { BedDouble, Music, Coffee } from "lucide-react";
 export default function About() {
   return (
     <section className="py-20 px-6 md:px-20 bg-gray-900 relative overflow-hidden">
-      {/* Background Gradient / Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-transparent to-blue-900/20 blur-3xl pointer-events-none overflow-hidden"></div>
+      {/* Background Gradient / Glow - REMOVED */}
 
       <motion.div
         initial={{ opacity: 0, x: -100 }}
@@ -25,7 +24,7 @@ export default function About() {
 
         {/* Content */}
         <div className="space-y-6 text-gray-300">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
             Stay in Luxury
           </h2>
 
@@ -37,25 +36,25 @@ export default function About() {
           <div className="grid gap-4">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-gray-700/30 backdrop-blur-lg shadow-lg hover:border-purple-500/40 transition"
+              className="flex items-center gap-3 p-4 rounded-xl bg-slate-800 border border-slate-700 backdrop-blur-lg shadow-lg hover:border-yellow-500/40 transition"
             >
-              <BedDouble className="text-purple-400 w-6 h-6" />
+              <BedDouble className="text-yellow-500 w-6 h-6" />
               <span>Comfortable & Modern Cabins</span>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-gray-700/30 backdrop-blur-lg shadow-lg hover:border-blue-500/40 transition"
+              className="flex items-center gap-3 p-4 rounded-xl bg-slate-800 border border-slate-700 backdrop-blur-lg shadow-lg hover:border-yellow-500/40 transition"
             >
-              <Music className="text-blue-400 w-6 h-6" />
+              <Music className="text-yellow-500 w-6 h-6" />
               <span>Rooftop Party Deck with Music</span>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-gray-700/30 backdrop-blur-lg shadow-lg hover:border-pink-500/40 transition"
+              className="flex items-center gap-3 p-4 rounded-xl bg-slate-800 border border-slate-700 backdrop-blur-lg shadow-lg hover:border-yellow-500/40 transition"
             >
-              <Coffee className="text-pink-400 w-6 h-6" />
+              <Coffee className="text-yellow-500 w-6 h-6" />
               <span>Exclusive Food & Drinks</span>
             </motion.div>
           </div>

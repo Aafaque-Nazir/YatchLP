@@ -28,7 +28,7 @@ export default function CountdownBanner() {
   }, [targetDate]);
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-1 px-4 text-sm md:text-base z-50 shadow-lg">
+    <div className="fixed top-0 left-0 w-full bg-slate-900 border-b border-slate-800 text-yellow-500 py-1 px-4 text-sm md:text-base z-50 shadow-lg">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-4 font-semibold">
         <span className="uppercase tracking-wide">⏳ Limited Time Offer!</span>
         <div className="flex gap-4 text-center">
