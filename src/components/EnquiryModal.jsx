@@ -42,21 +42,21 @@ export default function EnquiryModal({ isOpen, onClose, prefillPackage }) {
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-slate-400 hover:text-white transition"
+            className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 transition"
           >
             <X className="w-6 h-6" />
           </button>
 
-          <h3 className="text-2xl font-bold text-white mb-2">Reserve Your Experience</h3>
-          <p className="text-slate-400 mb-6">Tell us your plans, and we'll craft the perfect voyage.</p>
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">Reserve Your Experience</h3>
+          <p className="text-slate-500 mb-6">Tell us your plans, and we'll craft the perfect voyage.</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Your Name</label>
+              <label className="block text-sm font-medium text-slate-600 mb-1">Your Name</label>
               <input
                 required
                 type="text"
-                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition-colors"
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-yellow-500 transition-colors"
                 placeholder="John Doe"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -64,11 +64,11 @@ export default function EnquiryModal({ isOpen, onClose, prefillPackage }) {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Phone Number</label>
+              <label className="block text-sm font-medium text-slate-600 mb-1">Phone Number</label>
               <input
                 required
                 type="tel"
-                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition-colors"
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-yellow-500 transition-colors"
                 placeholder="+91 98765 43210"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -76,19 +76,19 @@ export default function EnquiryModal({ isOpen, onClose, prefillPackage }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Preferred Date</label>
+              <label className="block text-sm font-medium text-slate-600 mb-1">Preferred Date</label>
               <input
                 type="date"
-                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition-colors"
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-yellow-500 transition-colors"
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Select Package</label>
+              <label className="block text-sm font-medium text-slate-600 mb-1">Select Package</label>
               <select
-                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-yellow-500 transition-colors"
+                className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-yellow-500 transition-colors"
                 value={formData.package}
                 onChange={(e) => setFormData({ ...formData, package: e.target.value })}
               >
@@ -101,7 +101,7 @@ export default function EnquiryModal({ isOpen, onClose, prefillPackage }) {
 
             <button
               type="submit"
-              className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 mt-4 transition-all hover:scale-[1.02]"
+              className="w-full bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-bold py-4 rounded-xl flex items-center justify-center gap-2 mt-4 transition-all hover:scale-[1.02]"
             >
               <Send className="w-5 h-5" />
               Send Enquiry

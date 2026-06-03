@@ -16,9 +16,9 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-10 bg-navy-950 relative overflow-hidden">
+    <section id="experience" className="py-24 px-6 md:px-10 bg-slate-50 relative overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -28,11 +28,11 @@ export default function Experience() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4">Onboard Luxury</p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6">
+          <p className="text-sky-500 font-bold tracking-[0.2em] uppercase text-sm mb-4">Onboard Luxury</p>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-slate-900 mb-6">
             The Sea Cros <span className="text-gradient font-style-italic">Experience</span>
           </h2>
-          <p className="text-slate-400 font-light max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+          <p className="text-slate-500 font-light max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
             Every detail carefully planned to ensure your trip is amazing.
           </p>
         </motion.div>
@@ -47,12 +47,12 @@ export default function Experience() {
         >
           
           {/* Large Item: Sun Deck */}
-          <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group">
+          <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
             <div className="absolute inset-0 bg-[url('/p3.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/20">
-                <Sun className="text-gold-400 w-6 h-6" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
+                <Sun className="text-sky-400 w-6 h-6" />
               </div>
               <h3 className="text-3xl font-serif text-white mb-2">Panoramic Sun Decks</h3>
               <p className="text-slate-300 font-light text-lg">Spacious lounging areas to soak in the golden hour and breathtaking views.</p>
@@ -60,36 +60,35 @@ export default function Experience() {
           </motion.div>
 
           {/* Medium Item: Gourmet Dining */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-2 row-span-1 relative rounded-3xl overflow-hidden group bg-navy-900 border border-white/5">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-2 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200">
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative h-full p-8 flex flex-col justify-center">
-              <Utensils className="text-gold-400 w-8 h-8 mb-4" />
-              <h3 className="text-2xl font-serif text-white mb-2">Gourmet Dining</h3>
-              <p className="text-slate-400 font-light">Delicious meals prepared by our private onboard chefs.</p>
+              <Utensils className="text-sky-500 w-8 h-8 mb-4" />
+              <h3 className="text-2xl font-serif text-slate-900 mb-2">Gourmet Dining</h3>
+              <p className="text-slate-500 font-light">Delicious meals prepared by our private onboard chefs.</p>
             </div>
           </motion.div>
 
           {/* Small Item: Premium Bar */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-navy-900/50 backdrop-blur-sm border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-gold-500/30 transition-colors">
-            <Wine className="text-gold-400 w-10 h-10 mb-4" />
-            <h3 className="text-xl font-serif text-white">Premium Bar</h3>
+          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:border-sky-500/30 transition-colors">
+            <Wine className="text-sky-500 w-10 h-10 mb-4" />
+            <h3 className="text-xl font-serif text-slate-900">Premium Bar</h3>
           </motion.div>
 
           {/* Small Item: Entertainment */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-navy-900/50 backdrop-blur-sm border border-white/5 p-8 flex flex-col justify-center items-center text-center hover:border-gold-500/30 transition-colors">
-            <Music className="text-gold-400 w-10 h-10 mb-4" />
-            <h3 className="text-xl font-serif text-white">Live DJ & Music</h3>
+          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:border-sky-500/30 transition-colors">
+            <Music className="text-sky-500 w-10 h-10 mb-4" />
+            <h3 className="text-xl font-serif text-slate-900">Live DJ & Music</h3>
           </motion.div>
 
           {/* Wide Item: Luxury Cabins */}
-          <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group min-h-[250px]">
+          <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group min-h-[250px] shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
             <div className="absolute inset-0 bg-[url('/b.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div className="absolute inset-0 bg-navy-950/60 group-hover:bg-navy-950/40 transition-colors duration-500"></div>
-            <div className="absolute inset-0 p-6 md:p-8 flex items-end md:items-center justify-start md:justify-between">
+            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors duration-500"></div>
+            <div className="absolute inset-0 p-6 md:p-8 flex items-end md:items-center justify-start md:justify-between z-10">
               <div>
-                <div className="w-10 h-10 bg-gold-500/20 rounded-full flex items-center justify-center mb-3">
-                  <Camera className="text-gold-400 w-5 h-5 hidden" />
-                  <Anchor className="text-gold-400 w-5 h-5" />
+                <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 border border-white/30">
+                  <Anchor className="text-sky-400 w-5 h-5" />
                 </div>
                 <h3 className="text-2xl font-serif text-white mb-2">Luxury Accommodations</h3>
                 <p className="text-slate-300 font-light max-w-md text-sm md:text-base">Spacious, air-conditioned cabins decorated to provide the ultimate comfort and romance.</p>

@@ -29,14 +29,14 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 md:py-32 bg-navy-950 text-white px-6 md:px-10 relative">
+    <section className="py-24 md:py-32 bg-slate-50 text-slate-900 px-6 md:px-10 relative">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Help Details</span>
+          <span className="text-sky-500 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Help Details</span>
           <h2 className="text-4xl md:text-6xl font-serif mb-6">
             Common <span className="text-gradient font-style-italic">Questions</span>
           </h2>
-          <p className="text-slate-400 text-lg font-light">
+          <p className="text-slate-500 text-lg font-light">
             Everything you need to know before you book your trip.
           </p>
         </div>
@@ -47,20 +47,20 @@ export default function FAQ() {
             return (
               <div 
                 key={index} 
-                className={`border-b border-white/10 transition-colors duration-300 ${isOpen ? "bg-navy-900/50 rounded-2xl border-none" : ""}`}
+                className={`border-b border-slate-200 transition-all duration-300 ${isOpen ? "bg-white shadow-md rounded-2xl border-transparent" : ""}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="w-full flex items-center justify-between py-6 px-4 md:px-8 text-left group"
                 >
-                  <span className={`text-xl font-serif transition-colors duration-300 ${isOpen ? "text-gold-400" : "text-white group-hover:text-gold-300"}`}>
+                  <span className={`text-xl font-serif transition-colors duration-300 ${isOpen ? "text-sky-500" : "text-slate-900 group-hover:text-sky-400"}`}>
                     {faq.question}
                   </span>
-                  <div className={`flex-shrink-0 ml-4 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen ? "border-gold-400 bg-gold-400/10" : "border-white/10 group-hover:border-white/30"}`}>
+                  <div className={`flex-shrink-0 ml-4 w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${isOpen ? "border-sky-500 bg-sky-500/10" : "border-slate-200 group-hover:border-slate-200"}`}>
                     {isOpen ? (
-                      <Minus className="w-5 h-5 text-gold-400" />
+                      <Minus className="w-5 h-5 text-sky-500" />
                     ) : (
-                      <Plus className="w-5 h-5 text-white" />
+                      <Plus className="w-5 h-5 text-slate-900" />
                     )}
                   </div>
                 </button>
@@ -73,7 +73,7 @@ export default function FAQ() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-8 px-4 md:px-8 text-slate-300 text-lg font-light leading-relaxed">
+                      <div className="pb-8 px-4 md:px-8 text-slate-600 text-lg font-light leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>

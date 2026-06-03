@@ -28,7 +28,7 @@ function App() {
 
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
-      <div className="bg-navy-950 text-slate-50 font-sans min-h-screen overflow-x-hidden">
+      <div className="bg-slate-50 text-slate-900 font-sans min-h-screen overflow-x-hidden">
         <Navbar onBook={openBookModal} />
         <EnquiryModal 
           isOpen={isModalOpen} 

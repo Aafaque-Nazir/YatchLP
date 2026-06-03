@@ -31,7 +31,7 @@ export default function Gallery() {
   }, [media.length]);
 
   return (
-    <section id="gallery" className="py-24 md:py-32 px-4 md:px-10 bg-navy-950 overflow-hidden relative">
+    <section id="gallery" className="py-24 md:py-32 px-4 md:px-10 bg-slate-50 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-end justify-between mb-10 md:mb-16 gap-4 md:gap-8">
           <motion.div
@@ -40,8 +40,8 @@ export default function Gallery() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Visual Proof</span>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight">
+            <span className="text-sky-500 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Visual Proof</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-slate-900 leading-tight">
               A Glimpse of <br className="hidden md:block" />
               <span className="text-gradient font-style-italic">Paradise</span>
             </h2>
@@ -51,14 +51,14 @@ export default function Gallery() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-slate-400 max-w-sm text-base md:text-lg font-light pb-2"
+            className="text-slate-500 max-w-sm text-base md:text-lg font-light pb-2"
           >
             Moments captured on our vessels. The ocean is calling, and this is what it looks like to answer.
           </motion.p>
         </div>
 
         {/* Mobile: React Auto Slider */}
-        <div className="md:hidden relative w-full h-[450px] overflow-hidden rounded-3xl shadow-2xl bg-navy-900 border border-white/5">
+        <div className="md:hidden relative w-full h-[450px] overflow-hidden rounded-3xl shadow-2xl bg-white border border-slate-200">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -74,7 +74,7 @@ export default function Gallery() {
                 <video src={media[currentIndex].src} className="w-full h-full object-cover" muted autoPlay loop playsInline />
               )}
               {/* Dark Gradient Overlay for slider */}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
             </motion.div>
           </AnimatePresence>
 
@@ -85,7 +85,7 @@ export default function Gallery() {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-2 rounded-full transition-all duration-500 ${
-                  idx === currentIndex ? "w-8 bg-gold-400" : "w-2 bg-white/30"
+                  idx === currentIndex ? "w-8 bg-sky-500" : "w-2 bg-white/50"
                 }`}
               />
             ))}
@@ -120,9 +120,9 @@ export default function Gallery() {
                 />
               )}
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-navy-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                <div className="w-12 h-12 rounded-full border border-gold-400/50 flex items-center justify-center scale-50 group-hover:scale-100 transition-transform duration-500">
-                  <span className="text-gold-400 text-sm font-serif font-style-italic tracking-widest">+</span>
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                <div className="w-12 h-12 rounded-full border border-sky-400 flex items-center justify-center scale-50 group-hover:scale-100 transition-transform duration-500">
+                  <span className="text-sky-500 text-sm font-serif font-style-italic tracking-widest">+</span>
                 </div>
               </div>
             </motion.div>

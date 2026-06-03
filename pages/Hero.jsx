@@ -3,7 +3,7 @@ import { MessageSquare, Anchor } from "lucide-react";
 
 export default function Hero({ onBook }) {
   return (
-    <section id="home" className="relative h-[100dvh] flex items-center justify-center text-center overflow-hidden bg-navy-950">
+    <section id="home" className="relative h-[100dvh] flex items-center justify-center text-center overflow-hidden bg-slate-50">
       
       {/* Background Video */}
       <video
@@ -17,7 +17,7 @@ export default function Hero({ onBook }) {
       </video>
 
       {/* Dark overlay with premium gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/40 to-navy-950 z-[5]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/50 to-slate-50 z-[5]"></div>
 
       {/* Content */}
       <motion.div
@@ -44,7 +44,7 @@ export default function Hero({ onBook }) {
         </motion.h1>
 
         <motion.p
-          className="text-base md:text-xl mb-8 md:mb-10 text-slate-300 max-w-2xl mx-auto font-light leading-relaxed px-2"
+          className="text-base md:text-xl mb-8 md:mb-10 text-slate-200 max-w-2xl mx-auto font-light leading-relaxed px-2 drop-shadow-lg"
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
           Experience the ultimate freedom on the water with our exclusive speed boats and yachts. Unforgettable moments await you.
@@ -56,9 +56,9 @@ export default function Hero({ onBook }) {
         >
           <button
             onClick={() => onBook?.("Hero Section")}
-            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 font-bold uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(197,160,89,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(197,160,89,0.5)] overflow-hidden w-full sm:w-auto"
+            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 bg-gradient-to-r from-sky-500 to-sky-500 text-slate-900 font-bold uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(14,165,233,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(14,165,233,0.5)] overflow-hidden w-full sm:w-auto"
           >
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            <div className="absolute inset-0 bg-slate-900/ translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
             <span className="relative z-10 text-sm md:text-base whitespace-nowrap">Enquire Now</span>
           </button>
           
@@ -66,7 +66,7 @@ export default function Hero({ onBook }) {
             href="https://wa.me/919594793959?text=Hi%21%20I%20want%20to%20book%20a%20yacht%20experience."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-gold-400/50 text-white font-bold uppercase tracking-widest rounded-full shadow-lg transition-all duration-500 hover:scale-105 overflow-hidden w-full sm:w-auto"
+            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 border border-white/30 bg-black/20 backdrop-blur-md hover:bg-black/40 hover:border-sky-500/50 text-white font-bold uppercase tracking-widest rounded-full shadow-lg transition-all duration-500 hover:scale-105 overflow-hidden w-full sm:w-auto"
           >
             <MessageSquare className="w-5 h-5 relative z-10 text-green-400 group-hover:text-green-300 transition-colors" />
             <span className="relative z-10 text-sm md:text-base whitespace-nowrap">WhatsApp Us</span>
