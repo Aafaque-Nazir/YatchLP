@@ -7,7 +7,7 @@ export default function Hero({ onBook }) {
       
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-50 z-0 mix-blend-luminosity"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         autoPlay
         loop
         muted
@@ -16,8 +16,8 @@ export default function Hero({ onBook }) {
         <source src="/v1.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay with premium gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/50 to-slate-50 z-[5]"></div>
+      {/* Gradient overlay: dark at top for text readable, clear in middle, white fade at bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 from-0% via-transparent via-45% to-slate-50 to-100% z-[5]"></div>
 
       {/* Content */}
       <motion.div
@@ -54,13 +54,13 @@ export default function Hero({ onBook }) {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-2"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
         >
-          <button
-            onClick={() => onBook?.("Hero Section")}
+          <a
+            href="#book"
             className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 bg-gradient-to-r from-sky-500 to-sky-500 text-slate-900 font-bold uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(14,165,233,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(14,165,233,0.5)] overflow-hidden w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-slate-900/ translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
             <span className="relative z-10 text-sm md:text-base whitespace-nowrap">Enquire Now</span>
-          </button>
+          </a>
           
           <a
             href="https://wa.me/919594793959?text=Hi%21%20I%20want%20to%20book%20a%20yacht%20experience."

@@ -72,6 +72,7 @@ const TestimonialCard = ({ testimonial }) => {
           src={testimonial.image}
           alt={testimonial.name}
           className="w-12 h-12 rounded-full object-cover ring-2 ring-white/10"
+          loading="lazy"
         />
         <div>
           <h4 className="font-sans font-semibold text-slate-900 tracking-wide">

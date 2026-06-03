@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react';
-import { ReactLenis } from 'lenis/react';
+import { ReactLenis, useLenis } from 'lenis/react';
 import Hero from '../pages/Hero.jsx';
 import About from '../pages/About.jsx';
 import Packages from '../pages/Packages.jsx';
@@ -12,6 +12,30 @@ import CTA from '../pages/CTA.jsx';
 import Footer from '../pages/Footer.jsx';
 import EnquiryModal from './components/EnquiryModal.jsx';
 import Navbar from './components/Navbar.jsx';
+
+function AnchorScroller() {
+  const lenis = useLenis();
+  useEffect(() => {
+    const handleHashClick = (e) => {
+      const target = e.target.closest('a');
+      if (!target) return;
+      
+      const href = target.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const el = document.querySelector(href);
+        if (el) {
+          e.preventDefault();
+          lenis?.scrollTo(el, { offset: -100 }); // Adjust for fixed navbar
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleHashClick);
+    return () => document.removeEventListener('click', handleHashClick);
+  }, [lenis]);
+  
+  return null;
+}
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,6 +52,7 @@ function App() {
 
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+      <AnchorScroller />
       <div className="bg-slate-50 text-slate-900 font-sans min-h-screen overflow-x-hidden">
         <Navbar onBook={openBookModal} />
         <EnquiryModal 

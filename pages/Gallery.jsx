@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Gallery() {
   const media = [
@@ -22,13 +23,62 @@ export default function Gallery() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
+    if (!isAutoPlaying) return;
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % media.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [media.length]);
+  }, [media.length, isAutoPlaying]);
+
+  const handleNext = () => {
+    setIsAutoPlaying(false);
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % media.length);
+  };
+
+  const handlePrev = () => {
+    setIsAutoPlaying(false);
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? media.length - 1 : prev - 1));
+  };
+
+  const handleDragEnd = (e, { offset }) => {
+    setIsAutoPlaying(false);
+    if (offset.x < -50) {
+      handleNext();
+    } else if (offset.x > 50) {
+      handlePrev();
+    }
+  };
+
+  // Slider Animation Variants
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0.5,
+      scale: 0.95,
+      zIndex: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      zIndex: 1,
+      transition: { type: "spring", stiffness: 300, damping: 30 },
+    },
+    exit: (dir) => ({
+      x: dir < 0 ? "50%" : "-50%",
+      opacity: 0,
+      scale: 0.9,
+      zIndex: 0,
+      transition: { duration: 0.4 },
+    }),
+  };
 
   return (
     <section id="gallery" className="py-24 md:py-32 px-4 md:px-10 bg-slate-50 overflow-hidden relative">
@@ -57,38 +107,88 @@ export default function Gallery() {
           </motion.p>
         </div>
 
-        {/* Mobile: React Auto Slider */}
-        <div className="md:hidden relative w-full h-[450px] overflow-hidden rounded-3xl shadow-2xl bg-white border border-slate-200">
-          <AnimatePresence mode="wait">
+        {/* Mobile: Premium React Slider */}
+        <div 
+          className="md:hidden relative w-full h-[500px] overflow-hidden rounded-[2rem] shadow-2xl bg-slate-900"
+          onTouchStart={() => setIsAutoPlaying(false)}
+        >
+          {/* Main Slides */}
+          <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="absolute inset-0"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={handleDragEnd}
+              className="absolute inset-0 cursor-grab active:cursor-grabbing"
             >
               {media[currentIndex].type === "image" ? (
-                <img src={media[currentIndex].src} alt="Gallery" className="w-full h-full object-cover" />
+                <img src={media[currentIndex].src} alt="Gallery" className="w-full h-full object-cover" draggable="false" />
               ) : (
                 <video src={media[currentIndex].src} className="w-full h-full object-cover" muted autoPlay loop playsInline />
               )}
-              {/* Dark Gradient Overlay for slider */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              {/* Overlay for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Dots */}
-          <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
-            {media.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  idx === currentIndex ? "w-8 bg-sky-500" : "w-2 bg-white/50"
-                }`}
-              />
-            ))}
+          {/* Premium UI Overlay */}
+          <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 z-10">
+            {/* Top Bar: Counter & AutoPlay Status */}
+            <div className="flex justify-between items-center">
+              <div className="glass-panel !bg-white/10 backdrop-blur-md border-white/20 text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-[0.2em]">
+                {String(currentIndex + 1).padStart(2, '0')} / {String(media.length).padStart(2, '0')}
+              </div>
+              {isAutoPlaying && (
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-white/80 font-bold">Live</span>
+                </div>
+              )}
+            </div>
+
+            {/* Bottom Controls */}
+            <div className="flex flex-col gap-6 pointer-events-auto">
+              <div className="flex justify-between items-center">
+                <button 
+                  onClick={handlePrev}
+                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-sky-500 hover:border-transparent transition-all active:scale-95"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button 
+                  onClick={handleNext}
+                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-sky-500 hover:border-transparent transition-all active:scale-95"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Enhanced Pagination Dots */}
+              <div className="flex justify-center gap-1.5">
+                {media.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setIsAutoPlaying(false);
+                      setDirection(idx > currentIndex ? 1 : -1);
+                      setCurrentIndex(idx);
+                    }}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      idx === currentIndex ? "w-6 bg-sky-500" : "w-1.5 bg-white/30 hover:bg-white/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -108,6 +208,7 @@ export default function Gallery() {
                   src={item.src}
                   alt="Yacht Experience"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  loading="lazy"
                 />
               ) : (
                 <video

@@ -68,8 +68,8 @@ export default function CTA() {
 
               <div className="space-y-2">
                 <label className="text-sm font-medium tracking-wide text-slate-600 uppercase">Select Voyage</label>
-                <select className="w-full bg-slate-50/50 border border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl px-4 py-3 text-slate-900 outline-none transition-all appearance-none">
-                  <option value="" disabled selected>Choose a package...</option>
+                <select defaultValue="" className="w-full bg-slate-50/50 border border-slate-200 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-xl px-4 py-3 text-slate-900 outline-none transition-all appearance-none">
+                  <option value="" disabled>Choose a package...</option>
                   <option value="sunset">Sunset Cruise (₹15,000)</option>
                   <option value="party">Party Voyager (₹25,000)</option>
                   <option value="vip">VIP Overnight (₹50,000)</option>

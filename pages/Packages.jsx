@@ -96,16 +96,16 @@ export default function Packages({ onBook }) {
                 ))}
               </ul>
 
-              <button
-                onClick={() => onBook(pkg.title)}
-                className={`w-full py-4 rounded-xl font-bold uppercase tracking-[0.15em] text-sm transition-all duration-300 ${
+              <a
+                href="#book"
+                className={`w-full py-4 rounded-xl font-bold uppercase tracking-[0.15em] text-sm transition-all duration-300 block text-center ${
                   pkg.highlight
                     ? "bg-gradient-to-r from-sky-500 to-sky-500 text-slate-900 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] hover:scale-[1.02]"
                     : "bg-white border border-slate-200 text-slate-900 hover:border-sky-500/50 hover:text-sky-500 hover:shadow-md"
                 }`}
               >
                 Reserve Voyage
-              </button>
+              </a>
             </div>
           </motion.div>
         ))}

@@ -14,9 +14,9 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="flex flex-col items-start">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/Logo.png" alt="Sea Cros" className="w-12 h-12 object-contain invert brightness-0" />
+              <img src="/Logo.png" alt="Sea Cross" className="w-12 h-12 object-contain brightness-0" />
               <span className="text-xl font-bold text-slate-900 tracking-[0.2em] font-serif uppercase">
-                Sea Cros
+                Sea Cross
               </span>
             </div>
             <p className="text-slate-500 font-light text-sm leading-relaxed mb-6">
@@ -74,7 +74,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-9000 text-xs tracking-wider text-center md:text-left">
-            © {new Date().getFullYear()} Sea Cros. All Rights Reserved.
+            © {new Date().getFullYear()} Sea Cross. All Rights Reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-slate-9000 text-xs hover:text-slate-900 transition-colors">Privacy Policy</a>
