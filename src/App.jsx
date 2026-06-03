@@ -2,15 +2,14 @@ import  { useEffect, useState } from 'react';
 import { ReactLenis } from 'lenis/react';
 import Hero from '../pages/Hero.jsx';
 import About from '../pages/About.jsx';
+import Packages from '../pages/Packages.jsx';
+import Experience from '../pages/Experience.jsx';
 import Gallery from '../pages/Gallery.jsx';
+import Testimonials from '../pages/Testimonials.jsx';
+import FAQs from '../pages/FAQs.jsx';
+import Map from '../pages/Map.jsx';
 import CTA from '../pages/CTA.jsx';
 import Footer from '../pages/Footer.jsx';
-import Testimonials from '../pages/Testimonials.jsx';
-import Service from '../pages/Service.jsx';
-import Map from '../pages/Map.jsx';
-import FAQs from '../pages/FAQs.jsx';
-import Packages from '../pages/Packages.jsx';
-import Amenities from '../pages/Amenities.jsx';
 import EnquiryModal from './components/EnquiryModal.jsx';
 import Navbar from './components/Navbar.jsx';
 
@@ -37,16 +36,16 @@ function App() {
           prefillPackage={selectedPackage}
         />
         
+        {/* Storytelling Flow */}
         <Hero onBook={openBookModal} />
         <About />
-        <Amenities />
         <Packages onBook={openBookModal} />
-        <Service />
+        <Experience />
         <Gallery />
         <Testimonials dataId="testimonials"/>
-        <CTA />
-        <Map />
         <FAQs />
+        <Map />
+        <CTA />
         <Footer />
       </div>
     </ReactLenis>

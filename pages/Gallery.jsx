@@ -1,157 +1,78 @@
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Gallery() {
   const media = [
-    { type: "image", src: "/p1.jpeg" },
-    { type: "image", src: "/p2.jpeg" },
-    { type: "image", src: "/p3.jpeg" },
-    { type: "video", src: "/v2.mp4" },
-    { type: "image", src: "/p9.jpeg" },
-    { type: "image", src: "/p5.jpeg" },
-    { type: "video", src: "/v3.mp4" },
-    { type: "image", src: "/p6.jpeg" },
-    { type: "image", src: "/p10.jpeg" },
-    { type: "video", src: "/v4.mp4" },
-    { type: "video", src: "/v5.mp4" },
+    { type: "image", src: "/p1.jpeg", span: "md:col-span-2 md:row-span-2" },
+    { type: "video", src: "/v2.mp4", span: "md:col-span-1 md:row-span-2" },
+    { type: "image", src: "/p3.jpeg", span: "md:col-span-1 md:row-span-1" },
+    { type: "image", src: "/p5.jpeg", span: "md:col-span-2 md:row-span-1" },
+    { type: "image", src: "/p9.jpeg", span: "md:col-span-1 md:row-span-2" },
+    { type: "video", src: "/v4.mp4", span: "md:col-span-2 md:row-span-2" },
+    { type: "image", src: "/p10.jpeg", span: "md:col-span-1 md:row-span-1" },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [itemsPerPage, setItemsPerPage] = useState(1);
-
-  // Responsive items per page
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) setItemsPerPage(3);
-      else if (window.innerWidth >= 640) setItemsPerPage(2);
-      else setItemsPerPage(1);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % media.length);
-  }, [media.length]);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
-  };
-
-  // Auto-play
-  useEffect(() => {
-    let interval;
-    if (isPlaying) {
-      interval = setInterval(nextSlide, 4000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, nextSlide]);
-
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = 0; i < itemsPerPage; i++) {
-      const index = (currentIndex + i) % media.length;
-      items.push({ ...media[index], id: index }); // Add id for key
-    }
-    return items;
-  };
-
   return (
-    <section id="gallery" className="py-24 px-4 md:px-10 bg-navy-900 overflow-hidden relative border-y border-white/5">
+    <section id="gallery" className="py-32 px-4 md:px-10 bg-navy-950 overflow-hidden relative">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-6xl font-serif mb-4 text-white">
-            <span className="text-gradient font-style-italic">Explore</span> the Experience
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Witness the luxury and excitement that awaits you.
-          </p>
-        </motion.div>
-
-        <div className="relative group">
-          {/* Slider Content */}
-          <div className="flex justify-center gap-6 overflow-hidden">
-            <AnimatePresence mode="popLayout">
-              {getVisibleItems().map((item, i) => (
-                <motion.div
-                  key={`${item.src}-${i}`} // Unique key for animation
-                  initial={{ opacity: 0, x: 100, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: -100, scale: 0.9 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] w-full max-w-sm flex-shrink-0 bg-slate-900 border border-slate-800`}
-                >
-                  {item.type === "image" ? (
-                    <img
-                      src={item.src}
-                      alt="Gallery"
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  ) : (
-                    <video
-                      src={item.src}
-                      className="w-full h-full object-cover"
-                      muted
-                      autoPlay
-                      loop
-                      playsInline
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                    <span className="text-gold-300 font-serif text-2xl tracking-wide font-style-italic">
-                      Luxury Yacht Life
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          {/* Controls */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full text-white transition-all hover:scale-110 z-10"
-            aria-label="Previous slide"
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-md p-3 rounded-full text-white transition-all hover:scale-110 z-10"
-            aria-label="Next slide"
+            <span className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Visual Proof</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white leading-tight">
+              A Glimpse of <br/>
+              <span className="text-gradient font-style-italic">Paradise</span>
+            </h2>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-slate-400 max-w-sm text-lg font-light pb-2"
           >
-            <ChevronRight className="w-8 h-8" />
-          </button>
+            Moments captured on our vessels. The ocean is calling, and this is what it looks like to answer.
+          </motion.p>
         </div>
 
-        {/* Pagination & Play/Pause */}
-        <div className="flex items-center justify-center gap-4 mt-10">
-          <button
-            onClick={() => setIsPlaying(!isPlaying)}
-            className="p-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition"
-          >
-            {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-          </button>
-          <div className="flex gap-2">
-            {media.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  idx === currentIndex ? "bg-gold-400 w-8" : "bg-slate-700 hover:bg-slate-500"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
-          </div>
+        {/* Premium Masonry / Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+          {media.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.1, duration: 0.7, ease: "easeOut" }}
+              className={`relative rounded-3xl overflow-hidden group ${item.span}`}
+            >
+              {item.type === "image" ? (
+                <img
+                  src={item.src}
+                  alt="Yacht Experience"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                />
+              )}
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-navy-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                <div className="w-12 h-12 rounded-full border border-gold-400/50 flex items-center justify-center scale-50 group-hover:scale-100 transition-transform duration-500">
+                  <span className="text-gold-400 text-sm font-serif font-style-italic tracking-widest">+</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
