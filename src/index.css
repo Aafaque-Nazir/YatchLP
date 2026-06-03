@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  --color-gold-300: #F3E5AB;
+  --color-gold-400: #D4AF37;
+  --color-gold-500: #C5A059;
+  --color-gold-600: #AA823E;
+  
+  --color-navy-800: #101625;
+  --color-navy-900: #0B1120;
+  --color-navy-950: #050810;
 }
 
 html {
@@ -12,5 +22,13 @@ html {
 
 body {
   font-family: 'Outfit', sans-serif;
-  @apply bg-slate-950 text-slate-50 antialiased;
+  @apply bg-navy-950 text-slate-50 antialiased overflow-x-hidden selection:bg-gold-500/30 selection:text-gold-300;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-300 via-gold-500 to-gold-400;
+}
+
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl;
 }

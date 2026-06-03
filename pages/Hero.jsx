@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Phone, MessageSquare, ChevronDown } from "lucide-react";
+import { MessageSquare, Anchor } from "lucide-react";
 
-export default function Hero() {
+export default function Hero({ onBook }) {
   return (
-      <section id="home" className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-        
+    <section id="home" className="relative h-[100dvh] flex items-center justify-center text-center overflow-hidden bg-navy-950">
+      
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
+        className="absolute inset-0 w-full h-full object-cover opacity-50 z-0 mix-blend-luminosity"
         autoPlay
         loop
         muted
@@ -16,75 +16,62 @@ export default function Hero() {
         <source src="/v1.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50 z-[5]"></div>
-
-      {/* Floating subtle circles - REMOVED for clean look */}
+      {/* Dark overlay with premium gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 via-navy-950/40 to-navy-950 z-[5]"></div>
 
       {/* Content */}
       <motion.div
         initial="hidden"
         animate="visible"
         variants={{
-          hidden: { opacity: 0, y: 30 },
+          hidden: { opacity: 0, y: 40 },
           visible: {
             opacity: 1,
             y: 0,
-            transition: { staggerChildren: 0.2, duration: 1 },
+            transition: { staggerChildren: 0.3, duration: 1.2, ease: "easeOut" },
           },
         }}
-        className="relative z-10 max-w-4xl px-6"
+        className="relative z-10 max-w-5xl px-4 flex flex-col items-center w-full"
       >
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg"
+          className="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 md:mb-6 tracking-tight text-white drop-shadow-2xl leading-tight mt-10 md:mt-0"
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
-          Luxury Speed Boat <br/>
-          <span className="text-yellow-500">
-            Stay & Party
+          Unveil the Ocean's <br className="hidden md:block"/>
+          <span className="text-gradient font-style-italic">
+             Finest Luxury
           </span>
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-2xl mb-10 text-slate-300 max-w-2xl mx-auto font-light"
+          className="text-base md:text-xl mb-8 md:mb-10 text-slate-300 max-w-2xl mx-auto font-light leading-relaxed px-2"
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
-          Experience the ultimate freedom on the water. Unforgettable moments await you.
+          Experience the ultimate freedom on the water with our exclusive speed boats and yachts. Unforgettable moments await you.
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-2"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
         >
-          <a
-            href="tel:+919594793959"
-            className="group relative flex items-center gap-3 px-8 py-4 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold rounded-full shadow-lg shadow-yellow-600/30 transition-all duration-300 hover:scale-105 overflow-hidden"
+          <button
+            onClick={() => onBook?.("Hero Section")}
+            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 font-bold uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(197,160,89,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(197,160,89,0.5)] overflow-hidden w-full sm:w-auto"
           >
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            <Phone className="w-5 h-5 relative z-10" />
-            <span className="relative z-10">Call Now</span>
-          </a>
-         <a
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            <span className="relative z-10 text-sm md:text-base whitespace-nowrap">Enquire Now</span>
+          </button>
+          
+          <a
             href="https://wa.me/919594793959?text=Hi%21%20I%20want%20to%20book%20a%20yacht%20experience."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center gap-3 px-8 py-4 border border-white/20 hover:bg-white/10 text-white font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden"
+            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:border-gold-400/50 text-white font-bold uppercase tracking-widest rounded-full shadow-lg transition-all duration-500 hover:scale-105 overflow-hidden w-full sm:w-auto"
           >
-            <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            <MessageSquare className="w-5 h-5 relative z-10" />
-            <span className="relative z-10">WhatsApp Us</span>
+            <MessageSquare className="w-5 h-5 relative z-10 text-green-400 group-hover:text-green-300 transition-colors" />
+            <span className="relative z-10 text-sm md:text-base whitespace-nowrap">WhatsApp Us</span>
           </a>
         </motion.div>
-      </motion.div>
-
-      {/* Scroll Down Indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 2, duration: 1.5, repeat: Infinity }}
-      >
-        <ChevronDown className="w-10 h-10 text-white/50" />
       </motion.div>
     </section>
   );

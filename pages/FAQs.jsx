@@ -20,19 +20,21 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-20 bg-slate-950 text-white px-6 md:px-20">
-      <h2 className="text-4xl font-bold text-center mb-12">FAQs</h2>
+    <section className="py-24 bg-navy-950 text-white px-6 md:px-20 relative border-y border-white/5">
+      <h2 className="text-4xl md:text-5xl font-serif text-center mb-16">
+        Frequently Asked <span className="text-gradient font-style-italic">Questions</span>
+      </h2>
       <div className="max-w-3xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="bg-slate-900 rounded-xl p-4 cursor-pointer border border-slate-800 hover:border-yellow-500/50 transition-colors"
+            className="glass-panel rounded-xl p-6 cursor-pointer hover:border-gold-500/50 hover:shadow-[0_0_20px_rgba(197,160,89,0.1)] transition-all duration-300"
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
           >
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-lg">{faq.question}</h3>
+              <h3 className="font-semibold text-lg font-serif">{faq.question}</h3>
               <ChevronDown
-                className={`w-6 h-6 text-yellow-500 transition-transform duration-300 ${
+                className={`w-6 h-6 text-gold-400 transition-transform duration-300 ${
                   openIndex === index ? "rotate-180" : ""
                 }`}
               />

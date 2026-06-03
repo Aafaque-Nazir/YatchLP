@@ -1,4 +1,5 @@
 import  { useEffect, useState } from 'react';
+import { ReactLenis } from 'lenis/react';
 import Hero from '../pages/Hero.jsx';
 import About from '../pages/About.jsx';
 import Gallery from '../pages/Gallery.jsx';
@@ -27,26 +28,28 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-slate-950 text-slate-50 font-sans">
-      <Navbar onBook={openBookModal} />
-      <EnquiryModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        prefillPackage={selectedPackage}
-      />
-      
-      <Hero />
-      <Amenities />
-      <About />
-      <Packages onBook={openBookModal} />
-      <Service />
-      <Gallery />
-      <Testimonials dataId="testimonials"/>
-      <CTA />
-      <Map />
-      <FAQs />
-      <Footer />
-    </div>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+      <div className="bg-navy-950 text-slate-50 font-sans min-h-screen">
+        <Navbar onBook={openBookModal} />
+        <EnquiryModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          prefillPackage={selectedPackage}
+        />
+        
+        <Hero onBook={openBookModal} />
+        <About />
+        <Amenities />
+        <Packages onBook={openBookModal} />
+        <Service />
+        <Gallery />
+        <Testimonials dataId="testimonials"/>
+        <CTA />
+        <Map />
+        <FAQs />
+        <Footer />
+      </div>
+    </ReactLenis>
   )
 }
 

@@ -12,21 +12,22 @@ const amenities = [
 
 export default function Amenities() {
   return (
-    <section id="amenities" className="py-20 bg-slate-950 border-y border-slate-900">
+    <section id="amenities" className="py-24 bg-navy-900 border-y border-white/5 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
           {amenities.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1 }}
-              className="group flex flex-col items-center gap-4 p-4 rounded-xl hover:bg-slate-900/50 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group flex flex-col items-center gap-5 p-6 rounded-2xl hover:bg-navy-800 transition-colors"
             >
-              <div className="p-4 rounded-full bg-slate-900 border border-slate-800 text-slate-400 group-hover:text-yellow-500 group-hover:border-yellow-500/30 transition-all duration-300">
+              <div className="p-5 rounded-full bg-navy-950 border border-white/5 text-slate-400 group-hover:text-gold-400 group-hover:border-gold-500/30 group-hover:shadow-[0_0_20px_rgba(197,160,89,0.2)] transition-all duration-300">
                 {item.icon}
               </div>
-              <span className="text-slate-300 font-medium text-sm md:text-base">
+              <span className="text-slate-300 font-medium text-sm md:text-base tracking-wide uppercase">
                 {item.label}
               </span>
             </motion.div>

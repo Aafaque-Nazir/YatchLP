@@ -60,7 +60,7 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 px-4 md:px-10 bg-slate-950 overflow-hidden relative">
+    <section id="gallery" className="py-24 px-4 md:px-10 bg-navy-900 overflow-hidden relative border-y border-white/5">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,8 +68,8 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-            Explore the Experience
+          <h2 className="text-4xl md:text-6xl font-serif mb-4 text-white">
+            <span className="text-gradient font-style-italic">Explore</span> the Experience
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Witness the luxury and excitement that awaits you.
@@ -105,8 +105,8 @@ export default function Gallery() {
                       playsInline
                     />
                   )}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white font-medium tracking-wide">
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <span className="text-gold-300 font-serif text-2xl tracking-wide font-style-italic">
                       Luxury Yacht Life
                     </span>
                   </div>
@@ -145,8 +145,8 @@ export default function Gallery() {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  idx === currentIndex ? "bg-yellow-500 w-6" : "bg-slate-700 hover:bg-slate-600"
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  idx === currentIndex ? "bg-gold-400 w-8" : "bg-slate-700 hover:bg-slate-500"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />

@@ -3,14 +3,14 @@ import { MapPin } from "lucide-react";
 
 export default function LocationMap() {
   return (
-    <section className="py-20 bg-slate-950 text-center text-white">
+    <section className="py-24 bg-navy-900 text-center text-white border-t border-white/5 relative z-10">
       <div className="max-w-5xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-4xl font-extrabold mb-4 flex items-center justify-center gap-2">
-          <MapPin className="w-8 h-8 text-yellow-500" />
-          Find Us Here
+        <h2 className="text-4xl md:text-6xl font-serif mb-4 flex items-center justify-center gap-4">
+          <MapPin className="w-10 h-10 text-gold-400" />
+          <span className="text-gradient font-style-italic">Find Us</span> Here
         </h2>
-        <p className="text-gray-300 mb-10 text-lg">
+        <p className="text-slate-300 font-light mb-12 text-lg md:text-xl">
           Visit us at the iconic Gateway of India, Mumbai
         </p>
 
@@ -27,13 +27,12 @@ export default function LocationMap() {
           ></iframe>
         </div>
 
-        {/* Button */}
-        <div className="mt-8">
+        <div className="mt-12">
           <a
             href="https://www.google.com/maps/dir/?api=1&destination=Gateway+of+India+Mumbai"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-400 text-navy-950 font-bold uppercase tracking-widest py-4 px-10 rounded-full shadow-[0_0_20px_rgba(197,160,89,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(197,160,89,0.5)]"
           >
             🚗 Get Directions
           </a>

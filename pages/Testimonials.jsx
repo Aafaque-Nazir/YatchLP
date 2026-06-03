@@ -38,7 +38,7 @@ const StarRating = ({ rating }) => {
         <Star
           key={i}
           className={`w-5 h-5 ${
-            i < rating ? "fill-yellow-500 text-yellow-500" : "text-slate-700"
+            i < rating ? "fill-gold-400 text-gold-400" : "text-navy-800"
           }`}
         />
       ))}
@@ -48,22 +48,25 @@ const StarRating = ({ rating }) => {
 
 const TestimonialCard = ({ testimonial }) => {
   return (
-    <div className="bg-slate-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-slate-800">
-      <div className="flex items-center mb-4">
+    <div className="glass-panel rounded-xl p-8 hover:shadow-[0_0_30px_rgba(197,160,89,0.15)] transition-all duration-500 hover:-translate-y-2 border-t border-t-white/10 relative overflow-hidden group">
+      <div className="absolute top-0 right-0 p-6 opacity-10 text-9xl font-serif leading-none group-hover:text-gold-400 transition-colors duration-500">
+        "
+      </div>
+      <div className="flex items-center mb-6 relative z-10">
         <img
           src={testimonial.image}
           alt={testimonial.name}
-          className="w-16 h-16 rounded-full object-cover mr-4"
+          className="w-16 h-16 rounded-full object-cover mr-4 ring-2 ring-gold-500/50 p-1"
         />
         <div>
-          <h4 className="font-semibold text-white text-lg">
+          <h4 className="font-serif font-semibold text-white text-xl">
             {testimonial.name}
           </h4>
-          <p className="text-gray-400 text-sm">{testimonial.location}</p>
+          <p className="text-gold-300 text-sm tracking-widest uppercase mb-1">{testimonial.location}</p>
           <StarRating rating={testimonial.rating} />
         </div>
       </div>
-      <p className="text-gray-300 leading-relaxed italic">
+      <p className="text-slate-300 leading-relaxed font-light italic text-lg relative z-10">
         "{testimonial.text}"
       </p>
     </div>
@@ -73,17 +76,17 @@ const TestimonialCard = ({ testimonial }) => {
 const Testimonials = ({ dataId }) => {
   return (
     <section
-      className="w-full bg-slate-950 py-16 px-4"
+      className="w-full bg-navy-950 py-24 px-4 border-t border-white/5"
       data-id={dataId}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
-            What Our Guests Say
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">
+            Guest <span className="text-gradient font-style-italic">Memories</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light">
             Discover why families and professionals across India choose our
-            luxury yacht experiences for their most memorable moments
+            luxury yacht experiences for their most memorable moments.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,11 +94,11 @@ const Testimonials = ({ dataId }) => {
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
         </div>
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-6 py-3 shadow-md">
-            <Star className="w-5 h-5 fill-yellow-500 text-yellow-500" />
-            <span className="font-semibold text-white">4.6/5</span>
-            <span className="text-gray-400">from 200+ reviews</span>
+        <div className="text-center mt-16">
+          <div className="inline-flex items-center space-x-3 glass-panel rounded-full px-8 py-4 shadow-xl">
+            <Star className="w-6 h-6 fill-gold-400 text-gold-400" />
+            <span className="font-semibold text-white text-lg">4.9/5</span>
+            <span className="text-slate-400 font-light tracking-wide">| from 200+ elite reviews</span>
           </div>
         </div>
       </div>
