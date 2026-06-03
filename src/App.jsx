@@ -28,7 +28,7 @@ function App() {
 
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
-      <div className="bg-navy-950 text-slate-50 font-sans min-h-screen">
+      <div className="bg-navy-950 text-slate-50 font-sans min-h-screen overflow-x-hidden">
         <Navbar onBook={openBookModal} />
         <EnquiryModal 
           isOpen={isModalOpen} 
@@ -39,10 +39,10 @@ function App() {
         {/* Storytelling Flow */}
         <Hero onBook={openBookModal} />
         <About />
-        <Packages onBook={openBookModal} />
         <Experience />
         <Gallery />
         <Testimonials dataId="testimonials"/>
+        <Packages onBook={openBookModal} />
         <FAQs />
         <Map />
         <CTA />

@@ -46,26 +46,26 @@ export default function Experience() {
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]"
         >
           
-          {/* Large Item: Gourmet Dining */}
+          {/* Large Item: Sun Deck */}
           <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group">
             <div className="absolute inset-0 bg-[url('/p3.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end">
               <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/20">
-                <Utensils className="text-gold-400 w-6 h-6" />
+                <Sun className="text-gold-400 w-6 h-6" />
               </div>
-              <h3 className="text-3xl font-serif text-white mb-2">Gourmet Dining</h3>
-              <p className="text-slate-300 font-light text-lg">Exquisite culinary experiences prepared by our private onboard chefs.</p>
+              <h3 className="text-3xl font-serif text-white mb-2">Panoramic Sun Decks</h3>
+              <p className="text-slate-300 font-light text-lg">Spacious lounging areas to soak in the golden hour and breathtaking views.</p>
             </div>
           </motion.div>
 
-          {/* Medium Item: Sun Deck */}
+          {/* Medium Item: Gourmet Dining */}
           <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-2 row-span-1 relative rounded-3xl overflow-hidden group bg-navy-900 border border-white/5">
             <div className="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative h-full p-8 flex flex-col justify-center">
-              <Sun className="text-gold-400 w-8 h-8 mb-4" />
-              <h3 className="text-2xl font-serif text-white mb-2">Panoramic Sun Decks</h3>
-              <p className="text-slate-400 font-light">Spacious lounging areas to soak in the golden hour.</p>
+              <Utensils className="text-gold-400 w-8 h-8 mb-4" />
+              <h3 className="text-2xl font-serif text-white mb-2">Gourmet Dining</h3>
+              <p className="text-slate-400 font-light">Exquisite culinary experiences prepared by our private onboard chefs.</p>
             </div>
           </motion.div>
 
@@ -81,17 +81,18 @@ export default function Experience() {
             <h3 className="text-xl font-serif text-white">Live DJ & Music</h3>
           </motion.div>
 
-          {/* Wide Item: Photography */}
-          <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group">
+          {/* Wide Item: Luxury Cabins */}
+          <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group min-h-[250px]">
             <div className="absolute inset-0 bg-[url('/b.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
             <div className="absolute inset-0 bg-navy-950/60 group-hover:bg-navy-950/40 transition-colors duration-500"></div>
-            <div className="absolute inset-0 p-8 flex items-center justify-between">
+            <div className="absolute inset-0 p-6 md:p-8 flex items-end md:items-center justify-start md:justify-between">
               <div>
                 <div className="w-10 h-10 bg-gold-500/20 rounded-full flex items-center justify-center mb-3">
-                  <Camera className="text-gold-400 w-5 h-5" />
+                  <Camera className="text-gold-400 w-5 h-5 hidden" />
+                  <Anchor className="text-gold-400 w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-serif text-white mb-2">Drone & Photography</h3>
-                <p className="text-slate-300 font-light max-w-md">Capture your memories from every breathtaking angle.</p>
+                <h3 className="text-2xl font-serif text-white mb-2">Luxury Accommodations</h3>
+                <p className="text-slate-300 font-light max-w-md text-sm md:text-base">Spacious, air-conditioned cabins decorated to provide the ultimate comfort and romance.</p>
               </div>
             </div>
           </motion.div>
