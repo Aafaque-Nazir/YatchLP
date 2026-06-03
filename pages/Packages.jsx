@@ -40,8 +40,8 @@ export default function Packages({ onBook }) {
           transition={{ duration: 0.8 }}
         >
           <span className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">The Fleet</span>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6">
-            <span className="text-gradient font-style-italic">Curated</span> Voyages
+          <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">
+            <span className="text-gradient font-style-italic">Our Best</span> Packages
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
             Choose the perfect escape. From golden sunsets to starlit nights, we have a voyage tailored for you.

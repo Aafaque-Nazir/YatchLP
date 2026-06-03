@@ -16,8 +16,8 @@ export default function Experience() {
   };
 
   return (
-    <section id="amenities" className="py-24 px-6 md:px-10 bg-navy-950 relative overflow-hidden">
-      {/* Background glow */}
+    <section id="experience" className="py-24 px-6 md:px-10 bg-navy-950 relative overflow-hidden">
+      {/* Background accents */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto">
@@ -32,8 +32,8 @@ export default function Experience() {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-6">
             The Sea Cros <span className="text-gradient font-style-italic">Experience</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg md:text-xl font-light">
-            Every detail meticulously curated to ensure your voyage is nothing short of extraordinary.
+          <p className="text-slate-400 font-light max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+            Every detail carefully planned to ensure your trip is amazing.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function Experience() {
             <div className="relative h-full p-8 flex flex-col justify-center">
               <Utensils className="text-gold-400 w-8 h-8 mb-4" />
               <h3 className="text-2xl font-serif text-white mb-2">Gourmet Dining</h3>
-              <p className="text-slate-400 font-light">Exquisite culinary experiences prepared by our private onboard chefs.</p>
+              <p className="text-slate-400 font-light">Delicious meals prepared by our private onboard chefs.</p>
             </div>
           </motion.div>
 

@@ -24,9 +24,10 @@ export default function Navbar({ onBook }) {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Amenities", href: "#amenities" },
-    { name: "Packages", href: "#packages" },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
     { name: "Gallery", href: "#gallery" },
+    { name: "Packages", href: "#packages" },
   ];
 
   return (

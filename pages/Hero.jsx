@@ -37,7 +37,7 @@ export default function Hero({ onBook }) {
           className="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 md:mb-6 tracking-tight text-white drop-shadow-2xl leading-tight mt-10 md:mt-0"
           variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
         >
-          Unveil the Ocean's <br className="hidden md:block"/>
+          Experience the Ocean's <br className="hidden md:block"/>
           <span className="text-gradient font-style-italic">
              Finest Luxury
           </span>

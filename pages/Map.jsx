@@ -32,14 +32,14 @@ export default function LocationMap() {
         <div className="text-center mb-16">
           <span className="text-gold-400 font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Logistics</span>
           <h2 className="text-4xl md:text-6xl font-serif mb-4">
-            <span className="text-gradient font-style-italic">Embarkation</span> Point
+            <span className="text-gradient font-style-italic">Boarding</span> Point
           </h2>
           <p className="text-slate-400 font-light max-w-2xl mx-auto text-lg">
             Your luxury voyage begins at the iconic Gateway of India. Here is everything you need to know before you arrive.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch min-h-[60vh] max-h-[90vh]">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           
           {/* Left: Info Cards */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-6">
@@ -85,7 +85,7 @@ export default function LocationMap() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative min-h-[400px] lg:min-h-full"
+            className="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative min-h-[400px]"
           >
             {/* Grayscale Map Filter overlay via CSS if desired, but native maps look fine */}
             <iframe

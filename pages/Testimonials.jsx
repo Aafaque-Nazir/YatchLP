@@ -39,7 +39,7 @@ const testimonials = [
     location: "Bangalore",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
     rating: 5,
-    text: "The gourmet dining on the deck was phenomenal. Highly recommended.",
+    text: "The food and drinks on the deck were amazing. Highly recommended.",
   },
   {
     id: 6,
