@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactLenis, useLenis } from 'lenis/react';
 import Hero from '../pages/Hero.jsx';
 import About from '../pages/About.jsx';
@@ -12,6 +12,7 @@ import CTA from '../pages/CTA.jsx';
 import Footer from '../pages/Footer.jsx';
 import EnquiryModal from './components/EnquiryModal.jsx';
 import Navbar from './components/Navbar.jsx';
+import FloatingConcierge from './components/FloatingConcierge.jsx';
 
 function AnchorScroller() {
   const lenis = useLenis();
@@ -25,7 +26,7 @@ function AnchorScroller() {
         const el = document.querySelector(href);
         if (el) {
           e.preventDefault();
-          lenis?.scrollTo(el, { offset: -100 }); // Adjust for fixed navbar
+          lenis?.scrollTo(el, { offset: -90 });
         }
       }
     };
@@ -51,7 +52,7 @@ function App() {
   }, []);
 
   return (
-    <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.08, duration: 1.2, smoothWheel: true }}>
       <AnchorScroller />
       <div className="bg-slate-50 text-slate-900 font-sans min-h-screen overflow-x-hidden">
         <Navbar onBook={openBookModal} />
@@ -60,21 +61,22 @@ function App() {
           onClose={() => setIsModalOpen(false)} 
           prefillPackage={selectedPackage}
         />
+        <FloatingConcierge />
         
-        {/* Storytelling Flow */}
+        {/* Main Content Flow */}
         <Hero onBook={openBookModal} />
         <About />
         <Experience />
+        <Packages onBook={openBookModal} />
         <Gallery />
         <Testimonials dataId="testimonials"/>
-        <Packages onBook={openBookModal} />
         <FAQs />
         <Map />
         <CTA />
         <Footer />
       </div>
     </ReactLenis>
-  )
+  );
 }
 
-export default App
+export default App;

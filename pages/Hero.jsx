@@ -1,13 +1,18 @@
-import { motion } from "framer-motion";
-import { MessageSquare, Anchor } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 export default function Hero({ onBook }) {
+  const stats = [
+    { label: "Our Fleet", value: "15+ Yachts" },
+    { label: "Happy Guests", value: "5,000+" },
+    { label: "Guest Rating", value: "4.9 / 5.0" },
+    { label: "Support", value: "24/7 Available" },
+  ];
+
   return (
-    <section id="home" className="relative h-[100dvh] flex items-center justify-center text-center overflow-hidden bg-slate-50">
-      
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-between text-center overflow-hidden bg-slate-900 pt-28 pb-12">
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 scale-105"
         autoPlay
         loop
         muted
@@ -16,63 +21,60 @@ export default function Hero({ onBook }) {
         <source src="/v1.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay: dark at top for text readable, clear in middle, white fade at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 from-0% via-transparent via-45% to-slate-50 to-100% z-[5]"></div>
+      {/* Clean Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-slate-950/85 z-[5]" />
 
-      {/* Content */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0, y: 40 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.3, duration: 1.2, ease: "easeOut" },
-          },
-        }}
-        className="relative z-10 max-w-5xl px-4 flex flex-col items-center w-full"
-      >
-        <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl font-serif mb-4 md:mb-6 tracking-tight text-white drop-shadow-2xl leading-tight mt-10 md:mt-0"
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-        >
-          Experience the Ocean's <br className="hidden md:block"/>
-          <span className="text-gradient font-style-italic">
-             Finest Luxury
+      {/* Main Content Container */}
+      <div className="relative z-10 max-w-5xl px-6 flex flex-col items-center my-auto">
+        {/* Main Heading */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-white font-normal mb-6 tracking-tight leading-[1.05] drop-shadow-2xl">
+          Experience Premium <br className="hidden sm:block" />
+          <span className="font-serif italic text-gradient-sky font-semibold">
+            Yacht Rides In Mumbai
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="text-base md:text-xl mb-8 md:mb-10 text-slate-200 max-w-2xl mx-auto font-light leading-relaxed px-2 drop-shadow-lg"
-          variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-        >
-          Experience the ultimate freedom on the water with our exclusive speed boats and yachts. Unforgettable moments await you.
-        </motion.p>
+        {/* Subtitle */}
+        <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl mx-auto font-sans font-light leading-relaxed mb-10 drop-shadow-md px-2">
+          Book private speed boats and luxury yachts for sunset cruises, parties, and special celebrations at Gateway of India.
+        </p>
 
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-2"
-          variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-        >
-          <a
-            href="#book"
-            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 bg-gradient-to-r from-sky-500 to-sky-500 text-slate-900 font-bold uppercase tracking-widest rounded-full shadow-[0_0_30px_rgba(14,165,233,0.3)] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(14,165,233,0.5)] overflow-hidden w-full sm:w-auto"
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md">
+          <button
+            onClick={() => onBook("")}
+            className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-sky-500 via-blue-600 to-sky-600 text-white font-sans font-bold uppercase tracking-widest text-xs rounded-full shadow-[0_0_30px_rgba(2,132,199,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(2,132,199,0.7)] cursor-pointer"
           >
-            <div className="absolute inset-0 bg-slate-900/ translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-            <span className="relative z-10 text-sm md:text-base whitespace-nowrap">Enquire Now</span>
-          </a>
-          
+            Explore & Book Now
+          </button>
+
           <a
             href="https://wa.me/919594793959?text=Hi%21%20I%20want%20to%20book%20a%20yacht%20experience."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center justify-center gap-3 px-6 py-3.5 md:px-10 md:py-4 border border-white/30 bg-black/20 backdrop-blur-md hover:bg-black/40 hover:border-sky-500/50 text-white font-bold uppercase tracking-widest rounded-full shadow-lg transition-all duration-500 hover:scale-105 overflow-hidden w-full sm:w-auto"
+            className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/30 text-white font-sans font-bold uppercase tracking-widest text-xs rounded-full transition-all duration-300 hover:scale-105"
           >
-            <MessageSquare className="w-5 h-5 relative z-10 text-green-400 group-hover:text-green-300 transition-colors" />
-            <span className="relative z-10 text-sm md:text-base whitespace-nowrap">WhatsApp Us</span>
+            <MessageSquare className="w-4 h-4 text-emerald-400" />
+            WhatsApp Us
           </a>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
+
+      {/* Stats Counter Strip */}
+      <div className="relative z-10 w-full max-w-6xl px-6 mt-12">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 shadow-2xl">
+          {stats.map((stat, i) => (
+            <div key={i} className="flex flex-col items-center justify-center text-center border-r last:border-r-0 border-white/15 px-2">
+              <span className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white tracking-wide">
+                {stat.value}
+              </span>
+              <span className="text-[10px] sm:text-xs font-sans text-sky-200 uppercase tracking-widest font-medium mt-0.5">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

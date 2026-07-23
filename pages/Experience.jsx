@@ -1,102 +1,94 @@
-import { motion } from "framer-motion";
-import { Utensils, Music, Wine, Sun, Anchor, Camera } from "lucide-react";
+import { Utensils, Music, Wine, Sun, Anchor, Sparkles } from "lucide-react";
 
 export default function Experience() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
-
   return (
-    <section id="experience" className="py-24 px-6 md:px-10 bg-slate-50 relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="experience" className="py-24 md:py-32 px-6 lg:px-12 bg-slate-50 relative overflow-hidden">
+      {/* Background Orbs */}
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-sky-200/30 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-24"
-        >
-          <p className="text-sky-500 font-bold tracking-[0.2em] uppercase text-sm mb-4">Onboard Luxury</p>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-slate-900 mb-6">
-            The Sea Cros <span className="text-gradient font-style-italic">Experience</span>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <span className="inline-block text-sky-600 font-bold tracking-[0.2em] uppercase text-xs mb-3 px-3.5 py-1 bg-sky-100/60 rounded-full border border-sky-200">
+            Onboard Features
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-slate-900 font-normal mb-4">
+            What You Get <span className="font-serif italic text-gradient-sky font-semibold">Onboard</span>
           </h2>
-          <p className="text-slate-500 font-light max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
-            Every detail carefully planned to ensure your trip is amazing.
+          <p className="text-slate-600 font-sans font-light max-w-2xl mx-auto text-base sm:text-lg">
+            Everything you need for a comfortable, fun, and memorable boat ride.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Bento Box Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[250px]"
-        >
-          
-          {/* Large Item: Sun Deck */}
-          <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
-            <div className="absolute inset-0 bg-[url('/p3.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-            <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 border border-white/30">
-                <Sun className="text-sky-400 w-6 h-6" />
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[240px]">
+          {/* Card 1: Sun Decks */}
+          <div className="md:col-span-2 lg:col-span-2 row-span-2 relative rounded-3xl overflow-hidden group shadow-[0_10px_30px_rgba(2,132,199,0.08)] border border-sky-100">
+            <div className="absolute inset-0 bg-[url('/p3.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+            <div className="absolute inset-0 p-8 flex flex-col justify-end z-10 text-white">
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/30">
+                <Sun className="text-sky-300 w-6 h-6" />
               </div>
-              <h3 className="text-3xl font-serif text-white mb-2">Panoramic Sun Decks</h3>
-              <p className="text-slate-300 font-light text-lg">Spacious lounging areas to soak in the golden hour and breathtaking views.</p>
+              <span className="text-sky-300 font-sans text-xs font-bold uppercase tracking-widest mb-1">Open Air Deck</span>
+              <h3 className="text-3xl font-serif font-bold mb-2">Spacious Sun Decks</h3>
+              <p className="text-slate-200 font-sans font-light text-sm max-w-md">
+                Open lounging area to relax, enjoy the sea breeze, and take great photos during golden hour.
+              </p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Medium Item: Gourmet Dining */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-2 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200">
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative h-full p-8 flex flex-col justify-center">
-              <Utensils className="text-sky-500 w-8 h-8 mb-4" />
-              <h3 className="text-2xl font-serif text-slate-900 mb-2">Gourmet Dining</h3>
-              <p className="text-slate-500 font-light">Delicious meals prepared by our private onboard chefs.</p>
+          {/* Card 2: Food & Drinks */}
+          <div className="md:col-span-1 lg:col-span-2 row-span-1 relative rounded-3xl overflow-hidden bg-white p-8 border border-sky-100 shadow-[0_10px_30px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all flex flex-col justify-between group">
+            <div className="flex items-start justify-between">
+              <div className="p-3 bg-sky-50 text-sky-600 rounded-2xl border border-sky-100">
+                <Utensils className="w-6 h-6" />
+              </div>
+              <Sparkles className="w-5 h-5 text-sky-400 opacity-40 group-hover:opacity-100 transition-opacity" />
             </div>
-          </motion.div>
+            <div>
+              <h3 className="text-2xl font-serif font-bold text-slate-900 mb-1">Food & Catering</h3>
+              <p className="text-slate-500 font-sans font-light text-xs sm:text-sm">
+                Delicious snacks, fruit platters, and customized meal setups served right on the boat.
+              </p>
+            </div>
+          </div>
 
-          {/* Small Item: Premium Bar */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:border-sky-500/30 transition-colors">
-            <Wine className="text-sky-500 w-10 h-10 mb-4" />
-            <h3 className="text-xl font-serif text-slate-900">Premium Bar</h3>
-          </motion.div>
+          {/* Card 3: Bar & Drinks */}
+          <div className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden bg-white p-6 border border-sky-100 shadow-[0_10px_30px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all flex flex-col items-center justify-center text-center group">
+            <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-3 border border-sky-100 group-hover:scale-110 transition-transform">
+              <Wine className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-serif font-bold text-slate-900">Drinks & Bar</h3>
+            <p className="text-xs text-slate-500 font-light mt-1">Soft drinks & beverages onboard</p>
+          </div>
 
-          {/* Small Item: Entertainment */}
-          <motion.div variants={itemVariants} className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden group bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:border-sky-500/30 transition-colors">
-            <Music className="text-sky-500 w-10 h-10 mb-4" />
-            <h3 className="text-xl font-serif text-slate-900">Live DJ & Music</h3>
-          </motion.div>
+          {/* Card 4: Music & DJ */}
+          <div className="md:col-span-1 lg:col-span-1 row-span-1 relative rounded-3xl overflow-hidden bg-white p-6 border border-sky-100 shadow-[0_10px_30px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all flex flex-col items-center justify-center text-center group">
+            <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-3 border border-sky-100 group-hover:scale-110 transition-transform">
+              <Music className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-serif font-bold text-slate-900">Music & Sound System</h3>
+            <p className="text-xs text-slate-500 font-light mt-1">Bluetooth speakers & DJ setup</p>
+          </div>
 
-          {/* Wide Item: Luxury Cabins */}
-          <motion.div variants={itemVariants} className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group min-h-[250px] shadow-[0_8px_30px_rgb(0,0,0,0.1)]">
-            <div className="absolute inset-0 bg-[url('/b.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors duration-500"></div>
-            <div className="absolute inset-0 p-6 md:p-8 flex items-end md:items-center justify-start md:justify-between z-10">
-              <div>
-                <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-3 border border-white/30">
-                  <Anchor className="text-sky-400 w-5 h-5" />
+          {/* Card 5: Cabins */}
+          <div className="md:col-span-3 lg:col-span-4 row-span-1 relative rounded-3xl overflow-hidden group shadow-[0_10px_30px_rgba(2,132,199,0.08)] border border-sky-100">
+            <div className="absolute inset-0 bg-[url('/b.jpeg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-slate-950/70 group-hover:bg-slate-950/60 transition-colors" />
+            <div className="absolute inset-0 p-8 flex flex-col md:flex-row items-start md:items-center justify-between z-10 text-white">
+              <div className="max-w-xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <Anchor className="text-sky-300 w-5 h-5" />
+                  <span className="text-sky-300 font-sans text-xs font-bold uppercase tracking-widest">Air Conditioned</span>
                 </div>
-                <h3 className="text-2xl font-serif text-white mb-2">Luxury Accommodations</h3>
-                <p className="text-slate-300 font-light max-w-md text-sm md:text-base">Spacious, air-conditioned cabins decorated to provide the ultimate comfort and romance.</p>
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold mb-2">Comfortable Cabins</h3>
+                <p className="text-slate-300 font-sans font-light text-sm">
+                  Clean, air-conditioned rooms with private washrooms for resting or overnight trips.
+                </p>
               </div>
             </div>
-          </motion.div>
-
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
